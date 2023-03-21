@@ -50,7 +50,7 @@ namespace UpperComputerDemo1
         /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Timer_Count++;//每1秒 +1 
+            Timer_Count++;//每1秒 +1 开始从零计数 timer设置为1秒
             textBox1.Text = (Timer_Value - Timer_Count).ToString() + " 秒";//更新定时时间
             progressBar1.Value = Timer_Count;//更新进度条
             if (Timer_Count == Timer_Value)
@@ -75,7 +75,7 @@ namespace UpperComputerDemo1
         private void button2_Click(object sender, EventArgs e)
         {
             timer1.Stop();
-            Timer_Count = 0;
+            Timer_Count = 0;//停止计数，设置为0
             Timer_Status = 0;//状态设置为0
             Form1_Load(sender, e);
             button1.Text = "开始计时";
@@ -95,7 +95,7 @@ namespace UpperComputerDemo1
             {
                 // 0-停止状态 1-定时状态 2-暂停状态
                 case 0:
-                    Timer_Value = (ushort)((Convert.ToUInt16(comboBox1.Text,10) * 60)+Convert.ToUInt16(comboBox2.Text,10));//获取选框内的内容
+                    Timer_Value = (ushort)((Convert.ToUInt16(comboBox1.Text,10) * 60)+Convert.ToUInt16(comboBox2.Text,10));//获取选框内的内容 分钟*60+秒钟
                     if (Timer_Value >0)
                     {
                         //开始计时
